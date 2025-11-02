@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apg.dev/schemas/ops.plan.schema.json",
+  "type": "object",
+  "required": ["version", "rationale", "changes", "prompt_hash"],
+  "properties": {
+    "version": { "type": "string", "const": "1" },
+    "agent": { "type": "string" },
+    "prompt_hash": { "type": "string" },
+    "rationale": { "type": "string", "minLength": 10 },
+    "changes": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["op", "path"],
+        "properties": {
+          "op": { "enum": ["edit_text", "edit_ast", "edit_json", "bump_dep", "add_file", "remove_file"] },
+          "path": { "type": "string" },
+          "selector": { "type": "string" },
+          "after_replacement": { "type": "string" },
+          "semver": { "type": "string", "pattern": "^(patch|minor|exact:[0-9]+\\.[0-9]+\\.[0-9]+)$" },
+          "limits": {
+            "type": "object",
+            "properties": {
+              "max_added_lines": { "type": "integer", "maximum": 200 },
+              "max_removed_lines": { "type": "integer", "maximum": 200 }
+            }
+          },
+          "risk": { "enum": ["low", "medium"] }
+        }
+      }
+    }
+  }
+}

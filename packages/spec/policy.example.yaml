@@ -1,0 +1,11 @@
+version: 1
+budgets: { max_files: 6, max_lines_changed: 120, max_deps_bumped: 3 }
+allow_paths: ["src/**", "!infra/**"]
+dep_policy: { allow_levels: [patch, minor], allowed_scopes: ["^@org/.*", "react", "eslint", "typescript"] }
+checks:
+  build: "pnpm -w build"
+  typecheck: "pnpm -w tsc -p tsconfig.json --noEmit"
+  lint: "pnpm -w eslint ."
+  test: "pnpm -w vitest run --reporter=default"
+ast_modes: { default: "tokens", per_ext: { ".ts": "ast", ".kt": "ast" } }
+require_evidence: true
