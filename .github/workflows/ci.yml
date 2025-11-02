@@ -8,17 +8,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Pin Node and enable Corepack
+      # Install Node (Corepack included)
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'pnpm'
 
-      # Install PNPM based on the "packageManager" field in package.json
-      - uses: pnpm/action-setup@v4
-        with:
-          run_install: false
+      # Enable Corepack so it installs PNPM from package.json's "packageManager"
+      - run: corepack enable
 
+      # (Optional) show pnpm version to debug
+      - run: pnpm --version
+
+      # Install deps and build
       - run: pnpm install --frozen-lockfile=false
       - run: pnpm -w build
 
