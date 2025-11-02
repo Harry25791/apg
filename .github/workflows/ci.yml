@@ -29,4 +29,3 @@ jobs:
       # Install deps and build
       - run: pnpm install --frozen-lockfile=false
       - run: pnpm -w build
-
