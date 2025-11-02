@@ -4,5 +4,12 @@
   "private": false,
   "description": "APG spec (schemas + docs)",
   "license": "CC-BY-4.0",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "glob": "^11.0.3"
+  },
+  "scripts": {
+    "test": "node ./check-conformance.mjs"
+  }
 }

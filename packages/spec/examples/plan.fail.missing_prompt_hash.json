@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "agent": "cursor",
+  "rationale": "Missing prompt hash should fail.",
+  "changes": [
+    { "op": "edit_text", "path": "README.md", "after_replacement": "Fix typo", "limits": { "max_added_lines": 1, "max_removed_lines": 0 }, "risk": "low" }
+  ]
+}
