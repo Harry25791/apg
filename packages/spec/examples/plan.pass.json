@@ -1,0 +1,23 @@
+{
+  "version": "1",
+  "agent": "codex-2025",
+  "prompt_hash": "sha256:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcd",
+  "rationale": "Align types and lint rules; small AST-safe fix in Button.",
+  "changes": [
+    {
+      "op": "bump_dep",
+      "path": "package.json",
+      "semver": "patch",
+      "limits": { "max_added_lines": 10, "max_removed_lines": 0 },
+      "risk": "low"
+    },
+    {
+      "op": "edit_ast",
+      "path": "src/components/Button.tsx",
+      "selector": "FunctionDeclaration[id.name='Button']",
+      "after_replacement": "// typed props applied here",
+      "limits": { "max_added_lines": 20, "max_removed_lines": 10 },
+      "risk": "low"
+    }
+  ]
+}

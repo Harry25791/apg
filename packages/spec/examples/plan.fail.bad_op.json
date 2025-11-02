@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "agent": "claude-code",
+  "prompt_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "rationale": "Invalid op should fail.",
+  "changes": [
+    { "op": "rewrite_module", "path": "src/utils.ts", "after_replacement": "// ...", "limits": { "max_added_lines": 5, "max_removed_lines": 5 }, "risk": "medium" }
+  ]
+}
