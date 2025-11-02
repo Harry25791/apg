@@ -1,0 +1,8 @@
+{
+  "name": "@apg/spec",
+  "version": "0.0.0",
+  "private": false,
+  "description": "APG spec (schemas + docs)",
+  "license": "CC-BY-4.0",
+  "type": "module"
+}

@@ -1,0 +1,15 @@
+name: "APG Verify"
+description: "Fail PRs missing .apg/ops.plan.json or violating APG policy"
+author: "APG"
+runs:
+  using: "node20"
+  main: "index.js"
+inputs:
+  schema:
+    description: "Schema path or URL"
+    required: false
+    default: "packages/spec/schemas/ops.plan.schema.json"
+  base:
+    description: "Base branch to diff from"
+    required: false
+    default: ${{ github.base_ref }}
